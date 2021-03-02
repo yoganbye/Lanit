@@ -20,11 +20,11 @@ public class Kotik {
         weight = 0;
     }
 
-    Kotik() {
+    public Kotik() {
         numObject++;
     }
 
-    Kotik (String name, String meow, int weight, int satiety) {
+    public Kotik (String name, String meow, int weight, int satiety) {
         this.name = name;
         this.meow = meow;
         this.weight = weight;
@@ -55,7 +55,7 @@ public class Kotik {
         return weight;
     }
 
-    void liveAnotherDay() {
+    public void liveAnotherDay() {
         for (int i = 0; i < 24; i++) {
             int random = 1 + (int) (Math.random() * 5);
             if (satiety <= 0) {

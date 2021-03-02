@@ -7,7 +7,10 @@ public class Application {
         richard.setKotik("Richard", "grrrr meow", 3);
         tomas.liveAnotherDay();
         System.out.println("Имя котика: " + tomas.getName() );
-        System.out.println("Масса котика: " + tomas.getWeight());
+        System.out.println("Масса котика: " + tomas.getWeight());        
+        String equalMeow = tomas.getMeow().equals(richard.getMeow()) ? "Котики мяукают одинаково" : "Котики мяукают по-разному";
+        System.out.println(equalMeow);
+        System.out.println("Количество котиков: " + Kotik.getNumObject());
 
     }
 }
