@@ -12,19 +12,22 @@ public class Kotik {
     private String name;
     private String meow;
     private int weight;
+    private int prettiness;
 
     {
         satiety = 0;
         name = "Undefined";
         meow = "Undefined";
         weight = 0;
+        prettiness = 0;
     }
 
     public Kotik() {
         numObject++;
     }
 
-    public Kotik (String name, String meow, int weight, int satiety) {
+    public Kotik (int prettiness, String name, String meow, int weight, int satiety) {
+        this.prettiness += prettiness;
         this.name = name;
         this.meow = meow;
         this.weight = weight;
@@ -32,11 +35,16 @@ public class Kotik {
         numObject++;
     }
 
-    public void setKotik(String name, String meow, int weight) {
+    public void setKotik(int prettiness, String name, String meow, int weight) {
+        this.prettiness += prettiness;
         satiety = 3;
         this.name = name;
         this.meow = meow;
         this.weight = weight;
+    }
+
+    public int getPrettiness() {
+        return prettiness;
     }
 
     public int getSatiety() {
@@ -59,24 +67,19 @@ public class Kotik {
         for (int i = 0; i < 24; i++) {
             int random = 1 + (int) (Math.random() * 5);
             if (satiety <= 0) {
-                if (random == 1 || random == 2) {
-                    eat(4);
-                } else if (random == 3 || random == 4) {
-                    eat(5, "вискас");
-                } else {
-                    eat();
-                }                
-            } else if (random == 1) {
-                play();
-            } else if (random == 2) {
-                eat();
-            } else if (random == 3) {
-                sleep();
-            } else if (random == 4) {
-                chaseMouse();
-            } else if (random == 5) {
-                purs();
-            }           
+                switch (random){
+                    case 1,2: eat(4); break;
+                    case 3,4: eat(5, "вискас"); break;
+                    default: eat();
+                }
+            }
+            switch (random) {
+                case 1: play(); break;
+                case 2: eat(); break;
+                case 3: sleep(); break;
+                case 4: chaseMouse(); break;
+                default: purs();
+            }
         }
     }
 
